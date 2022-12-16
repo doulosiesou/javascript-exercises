@@ -1,12 +1,22 @@
 const palindromes = function (word) {
-    let pTest = ''
-    for (const letter of word) {
-        console.log(letter);
+    const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
+                     'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 
+                     'y', 'z'];
+    let pTest = '';
+    let modWord = '';
+    let modWord2 = '';
+
+    for (letter of word) {
+        if (letters.includes(letter.toLowerCase())) {
+            modWord += letter.toLowerCase();
+        };
+    };
+
+    for (let i=modWord.length-1; i>=0; i--) {
+        pTest += modWord[i];
     }
-    for (let i=word.length-1; i>=0; i--) {
-        pTest += word[i];
-    }
-    if (pTest.toLowerCase() === word.toLowerCase()) {
+
+    if (pTest === modWord) {
         return true;
     } else {
         return false;
